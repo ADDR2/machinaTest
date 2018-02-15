@@ -8,8 +8,8 @@ module.exports = transitions => {
             transitions.forEach( transition => {
                 this.transitions[transition.from] = this.transitions[transition.from] || {};
                 this.transitions[transition.from][transition.to] = true;
-                this.states[transition.from] = { _onEnter:
-                    function(){
+                this.states[transition.from] = {
+                    _onEnter: function() {
                         if(this.forbidden) console.log("Incorrect access");
                         else console.log("Entering in", this.state);
                     }
